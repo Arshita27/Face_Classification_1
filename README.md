@@ -43,9 +43,9 @@ _You can collect your own dataset from the steps given below or simply use my da
 
   1. __Model 1: Simple Gaussian Model__
 
-    * Brief Description of the model: This model is the simplest of all the models with very less complexity and easy to compute. I have taken my entire training data (consisting of both face and non face folders) and fit two corresponding simple gaussian models for each face class and non face class. Each gaussian has its corresponding mean and covariance matrix. The mean was a 100x1 matrix which was resized back to the initial 10x10 matrix. For the test dataset, the likelihood is calculated for every image in this dataset with respect to both the classes. Next we calculate the Posterior probability given that the prior probability for both classes is same. Finally, we compare the Posterior for one particular image, given both the classes. Applying Bayes Rule, we can find the class to which the given image belonged to.
+    - Brief Description of the model: This model is the simplest of all the models with very less complexity and easy to compute. I have taken my entire training data (consisting of both face and non face folders) and fit two corresponding simple gaussian models for each face class and non face class. Each gaussian has its corresponding mean and covariance matrix. The mean was a 100x1 matrix which was resized back to the initial 10x10 matrix. For the test dataset, the likelihood is calculated for every image in this dataset with respect to both the classes. Next we calculate the Posterior probability given that the prior probability for both classes is same. Finally, we compare the Posterior for one particular image, given both the classes. Applying Bayes Rule, we can find the class to which the given image belonged to.
 
-    * Guidelines to run the model: Run python Face_Classification_1/Models/Model_1.py
+    - Guidelines to run the model: Run python Face_Classification_1/Models/Model_1.py
 
   2. __Model 2: Mixture of Gaussian Model__
 
