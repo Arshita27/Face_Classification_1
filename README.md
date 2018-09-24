@@ -41,22 +41,19 @@ _You can collect your own dataset from the steps given below or simply use my da
 
   (___Note___: I have converted my dataset into gray scale for the ease of computation. I have, then, flattened every image (shape: 100x1) which can now be used in every model. The code is adaptable to colored images too.)
 
-  1. __Model 1: Simple Gaussian Model:__
+  1. __Model 1: Simple Gaussian Model__
 
-    * __Brief Description of the model:__ This model is the simplest of all the models with very less complexity and easy to compute. I have taken my entire training data (consisting of both face and non face folders) and fit two corresponding simple gaussian models for each face class and non face class. Each gaussian has its corresponding mean and covariance matrix. The mean was a 100x1 matrix which was resized back to the initial 10x10 matrix. For the test dataset, the likelihood is calculated for every image in this dataset with respect to both the classes. Next we calculate the Posterior probability given that the prior probability for both classes is same. Finally, we compare the Posterior for one particular image, given both the classes. Applying Bayes Rule, we can find the class to which the given image belonged to.
+    * **Brief Description of the model:** This model is the simplest of all the models with very less complexity and easy to compute. I have taken my entire training data (consisting of both face and non face folders) and fit two corresponding simple gaussian models for each face class and non face class. Each gaussian has its corresponding mean and covariance matrix. The mean was a 100x1 matrix which was resized back to the initial 10x10 matrix. For the test dataset, the likelihood is calculated for every image in this dataset with respect to both the classes. Next we calculate the Posterior probability given that the prior probability for both classes is same. Finally, we compare the Posterior for one particular image, given both the classes. Applying Bayes Rule, we can find the class to which the given image belonged to.
 
     * __Guidelines to run the model:__ Run: python Face_Classification_1/Models/Model_1.py
 
-  2. __Model 2: Mixture of Gaussian Model:__
+  2. __Model 2: Mixture of Gaussian Model__
+    1. __Brief Description of the model:__ This model is an upgrade to simple gaussian model. Here, we divide my two classes (face and non face) to further clusters. Next, we calculate the mean and covariance for every clusters in both classes. The weights for every cluster is modified in every iteration. Expectation-Maximization Algorithm is used here. The posterior is thus calculated with the different clusters and the corresponding final weight. The classification, then, is similar to the previous model.
+    2. **Guidelines to run the model:** Run: python Face_Classification_1/Models/Model_2.py
 
-    * __Brief Description of the model:__ This model is an upgrade to simple gaussian model. Here, we divide my two classes (face and non face) to further clusters. Next, we calculate the mean and covariance for every clusters in both classes. The weights for every cluster is modified in every iteration. Expectation-Maximization Algorithm is used here. The posterior is thus calculated with the different clusters and the corresponding final weight. The classification, then, is similar to the previous model.
-
-    * __Guidelines to run the model:__ Run: python Face_Classification_1/Models/Model_2.py
-
-  3. __Model 3: t-distribution Model:__
+  3. __Model 3: t-distribution Model__
     * __Brief Description of the model:__ The ​t-distribution is symmetric and bell-shaped, like the ​ normal distribution​ , but has heavier tails, meaning that it is more prone to producing values that fall far from its mean. Here we have a parameter V which is called the degree of freedom. ​ As the number of degrees of freedom grows, the​ t-distribution approaches the normal distribution with mean 0 and variance 1. ​Here the ‘expectation’ is calculated at every iteration and the term v is updated. This model then follows similar steps as the above Mixture of gaussian model where it classifies the test image (apart from the fact that there are no clusters in the simple t-distribution)
-
-    * __Guidelines to run the model:__ Run: python  Face_Classification_1/Models/Model_3.py
+    2. __Guidelines to run the model:__ Run: python  Face_Classification_1/Models/Model_3.py
 
   4. __Model 4: Mixture of t-distribution model:__
 
